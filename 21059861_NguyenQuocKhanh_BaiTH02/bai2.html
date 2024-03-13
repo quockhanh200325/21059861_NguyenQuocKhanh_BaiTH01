@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <title>Bài 2</title>
+</head>
+<body>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: antiquewhite;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 0;
+    color: blue;
+}
+
+p {
+    text-align: center;
+    font-size: 7px;
+}
+
+.container {
+    width: 500px;
+    margin: 0 auto;
+    background-color: #c1d9e8; 
+	padding: 20px; 
+	}
+
+.form-group {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+form{
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    margin-left: 43px;
+}
+
+input, select {
+    width: 200px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+textarea{
+    width: 405px;
+    height: 65px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #000;
+    color: #fff;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #333;
+}
+#s1{
+    display: inline-flex;
+}
+#s2{
+    display: inline-flex;
+}
+#s3{
+    display: inline-flex;
+}
+    </style>
+    <div class="container">
+        <h2>ĐÓNG GÓP Ý KIẾN VỀ SẢN PHẨM</h2>
+        <p>Góp ý của bạn sẽ được chúng tôi xem xét, vui lòng nhập tiếng việt có dấu.</p>
+        <p><span>Các ý kiến đóng góp nên viết chi tiết rõ ràng, kèm theo các minh chứng xác thực thời gian và địa điểm (nếu có).</span></p>
+        <form action="#" onsubmit="return confirmFormSubmit()">
+            <div class="form-group" id="s1">
+                <input type="text" id="ho-ten" name="ho-ten" placeholder="Nhập họ và tên">
+            </div>
+            <div class="form-group" id="s1">
+                <input type="text" id="ma-the" name="ma-the" placeholder="Nhập mã thẻ">
+            </div>
+            <div class="form-group" id="s2">
+                <input type="text" id="so-dien-thoai" name="so-dien-thoai" placeholder="Nhập số điện thoại">
+            </div>
+            <div class="form-group" id="s2">
+                <input type="email" id="email" name="email" placeholder="Nhập email">
+            </div>
+            <div class="form-group" id="s3">
+                <select id="loai-kh" name="loai-kh">
+                    <option value="">Chọn loại khách hàng</option>
+                    <option value="VVIP">VVIP</option>
+                    <option value="VIP">VIP</option>
+                    <option value="Normal">Normal</option>
+                </select>
+            </div>
+            <div class="form-group" id="s3">
+                <input type="text" id="ma-hd" name="ma-hd" placeholder="Nhập mã HD">
+            </div>
+            <div class="form-group" id="s4">
+                <textarea id="noi-dung" name="noi-dung" rows="5" placeholder="Nhập nội dung góp ý"></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">GỬI GÓP Ý <i class="bi bi-chat-text-fill"></i></button>
+            </div>
+        </form>
+    </div>
+    <script>
+       function confirmFormSubmit() {
+  var name = document.getElementById("ho-ten").value;
+  var cardCode = document.getElementById("ma-the").value;
+  var phoneNumber = document.getElementById("so-dien-thoai").value;
+  var email = document.getElementById("email").value;
+  var customerType = document.getElementById("loai-kh").value;
+  var orderCode = document.getElementById("ma-hd").value;
+  var feedback = document.getElementById("noi-dung").value;
+
+  var message = "Thông tin của bạn:\n\n" +
+    "Họ và tên: " + name + "\n" +
+    "Mã thẻ: " + cardCode + "\n" +
+    "Số điện thoại: " + phoneNumber + "\n" +
+    "Email: " + email + "\n" +
+    "Loại KH: " + customerType + "\n" +
+    "Mã HD: " + orderCode + "\n" +
+    "Nội dung góp ý: " + feedback;
+
+  return confirm(message);
+}
+  </script>
+</body>
+</html>

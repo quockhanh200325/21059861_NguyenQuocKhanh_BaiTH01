@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 4</title>
+    <style>
+  body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #af19197e;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #4CAF50;
+  font-size: 2rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 1.2rem;
+}
+
+button:hover {
+  background-color: #3e8e41;
+}
+
+#result {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+#result:hover {
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#result p {
+  margin-bottom: 10px;
+}
+
+#result p:first-child {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.recommendation {
+  color: #4CAF50;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TÍNH CHỈ SỐ BMI</h1>
+        <label for="weight">Nhập cân nặng (kg):</label>
+        <input type="number" id="weight">
+        <label for="height">Nhập chiều cao (m):</label>
+        <input type="number" id="height">
+        <label for="age">Chọn loại tuổi:</label>
+        <select id="age">
+            <option value="trungnien">Trung niên</option>
+            <option value="gialontuoi">Già, lớn tuổi</option>
+        </select>
+        <button onclick="calculateBMI()">TÍNH BMI!</button>
+        <div id="result"></div>
+    </div>
+
+    <script>
+        function calculateBMI() {
+            const weight = parseFloat(document.getElementById('weight').value);
+            const height = parseFloat(document.getElementById('height').value);
+            const age = document.getElementById('age').value;
+    
+            const bmi = weight / (height * height);
+            let category = '';
+            let recommendation = '';
+    
+            if (bmi < 18.5) {
+                category = 'Dưới chuẩn';
+                recommendation = 'Tăng cân';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                category = 'Bình thường';
+                recommendation = 'Nhớ chăm sóc cơ thể nhé';
+            } else if (bmi >= 24.9 && bmi < 29.9) {
+                category = 'Thừa cân';
+                recommendation = 'Tập thể dục thường xuyên';
+            } else if (bmi >= 30 && bmi < 34.9) {
+                category = 'Béo phì cấp độ 1';
+                recommendation = 'Khám định kỳ';
+            } else if (bmi >= 35 && bmi < 39.9) {
+                category = 'Béo phì cấp độ 2';
+                recommendation = 'Tập thể dục thường xuyên';
+            } else if(bmi >= 40){
+                category = 'Béo phì cấp độ 3';
+                recommendation = 'Hạn chế ăn mỡ động vật nhe';
+            }else{
+                recommendation = "Bạn nên nhập đủ thông tin nhé !"
+            }
+    
+            const resultElement = document.getElementById('result');
+            resultElement.innerHTML = `
+                <p>KẾT QUẢ</p>
+                <p>${bmi.toFixed(2)}</p>
+                <p>${category}</p>
+                <p>${recommendation}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
