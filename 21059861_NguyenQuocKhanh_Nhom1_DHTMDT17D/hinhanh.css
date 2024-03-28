@@ -1,0 +1,95 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    background: gainsboro;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+
+.wrapper {
+    width: auto;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+}
+/* CSS cho ảnh */
+img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+    transition: 0.256s;
+  }
+  
+  /* CSS cho khung ảnh */
+  .image {
+    width: 20%;
+    height: 200px;
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 20px 0;
+    
+  }
+  
+  /* Hiệu ứng hover cho ảnh */
+  .image:hover img {
+    transform: scale(1.2);
+  }
+  
+  /* CSS cho thư viện ảnh */
+  .gallery{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(1, 1, 1, 0.547);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: antiquewhite;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(0.6, 0.8); /* thu nhỏ thư viện ảnh khi chưa kích hoạtg*/
+    transition: 0.5s;
+     align-self: center; /*thêm này vào nữa */
+    justify-self: center;
+    border-radius: 5px;
+  }
+  
+  /* CSS cho nút đóng thư viện ảnh */
+  .close {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    font-size: 35px;
+  }
+  .control{
+    font-size: 35px;
+    position: absolute;
+  }
+  .control.prev{
+    left: 15px;
+
+  }
+  .control.right{
+    right: 15px;
+  }
+  .gallery_inner{
+    width: 70%;
+    height: 70%;
+    margin: 0 auto;
+  }
+  .show{
+    opacity: 1;
+    pointer-events: auto;
+    transform: scale(0.8);
+  }
